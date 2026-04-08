@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WyvernTimer.TaskDetailPage"
+             Title="Task Details">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,40" Spacing="20">
+
+            <Label
+                Text="Task Details"
+                FontSize="28"
+                FontAttributes="Bold"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Task Name"
+                FontAttributes="Bold" />
+
+            <Entry
+                x:Name="TaskNameEntry"
+                Placeholder="Enter task name" />
+
+            <Label
+                Text="Description"
+                FontAttributes="Bold" />
+
+            <Entry
+                x:Name="TaskDescriptionEntry"
+                Placeholder="Enter task description" />
+
+            <Button
+                x:Name="SaveChangesButton"
+                Text="Save Changes"
+                Clicked="OnSaveChangesClicked" />
+
+            <Label
+                Text="Elapsed Time"
+                FontAttributes="Bold" />
+
+            <Label
+                x:Name="ElapsedTimeLabel"
+                Text="00:00:00"
+                FontSize="24"
+                FontAttributes="Bold" />
+
+            <Label
+                Text="Total Recorded Time"
+                FontAttributes="Bold" />
+
+            <Label
+                x:Name="TotalTimeLabel"
+                Text="00:00:00"
+                FontSize="20" />
+
+            <Label
+                x:Name="TaskStatusLabel"
+                Text="Task is not running."
+                FontSize="16" />
+
+            <Button
+                x:Name="StartButton"
+                Text="Start Timer"
+                Clicked="OnStartTimerClicked" />
+
+            <Button
+                x:Name="StopButton"
+                Text="Stop Timer"
+                Clicked="OnStopTimerClicked" />
+
+            <Button
+                x:Name="DeleteButton"
+                Text="Delete Task"
+                Clicked="OnDeleteTaskClicked" />
+
+            <Label
+                Text="Session Log"
+                FontSize="20"
+                FontAttributes="Bold" />
+
+            <CollectionView
+                x:Name="SessionLogCollectionView"
+                SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Stroke="LightGray"
+                                StrokeThickness="1"
+                                Padding="10"
+                                Margin="0,5">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding StartTime, StringFormat='Date: {0:G}'}"
+                                       FontAttributes="Bold" />
+                                <Label Text="{Binding Duration, StringFormat='Duration: {0:hh\\:mm\\:ss}'}" />
+                                <Label Text="{Binding Comment, StringFormat='Comment: {0}'}" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

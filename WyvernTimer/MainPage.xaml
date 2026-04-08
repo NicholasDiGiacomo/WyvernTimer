@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WyvernTimer.MainPage"
+             Title="Wyvern Timer">
+
+    <VerticalStackLayout Padding="30,40" Spacing="15">
+
+        <Label
+            Text="Wyvern Timer"
+            FontSize="28"
+            FontAttributes="Bold"
+            HorizontalOptions="Center" />
+
+        <Entry
+            x:Name="TaskNameEntry"
+            Placeholder="Enter task name" />
+
+        <Entry
+            x:Name="TaskDescriptionEntry"
+            Placeholder="Enter task description" />
+
+        <Button
+            Text="Create Task"
+            Clicked="OnCreateTaskClicked" />
+
+        <Label
+            Text="Task List"
+            FontSize="20"
+            FontAttributes="Bold" />
+
+        <CollectionView
+    x:Name="TaskCollectionView"
+    SelectionMode="Single"
+    SelectionChanged="OnTaskSelected"
+    VerticalOptions="FillAndExpand">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10" Margin="0,5">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="18" />
+                            <Label Text="{Binding Description}" FontSize="14" />
+                            <Label Text="{Binding DisplayText}" FontSize="14" />
+                        </VerticalStackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label
+            x:Name="TaskStatusLabel"
+            Text="Create a task or select one from the list."
+            FontSize="16" />
+
+    </VerticalStackLayout>
+
+</ContentPage>
