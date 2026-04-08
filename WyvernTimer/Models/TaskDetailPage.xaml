@@ -5,93 +5,107 @@
              Title="Task Details">
 
     <ScrollView>
-        <VerticalStackLayout Padding="30,40" Spacing="20">
+        <VerticalStackLayout Padding="24,36" Spacing="18">
 
-            <Label
-                Text="Task Details"
-                FontSize="28"
-                FontAttributes="Bold"
-                HorizontalOptions="Center" />
+            <Label Text="Task Details"
+                   Style="{StaticResource PageTitleStyle}" />
 
-            <Label
-                Text="Task Name"
-                FontAttributes="Bold" />
+            <Border Stroke="{StaticResource SurfaceBorderColor}"
+                    BackgroundColor="{StaticResource SurfaceColor}"
+                    StrokeThickness="1"
+                    Padding="16"
+                    StrokeShape="RoundRectangle 14">
 
-            <Entry
-                x:Name="TaskNameEntry"
-                Placeholder="Enter task name" />
+                <VerticalStackLayout Spacing="14">
 
-            <Label
-                Text="Description"
-                FontAttributes="Bold" />
+                    <Label Text="Task Name" Style="{StaticResource SectionHeaderStyle}" />
+                    <Entry x:Name="TaskNameEntry"
+                           Placeholder="Enter task name" />
 
-            <Entry
-                x:Name="TaskDescriptionEntry"
-                Placeholder="Enter task description" />
+                    <Label Text="Description" Style="{StaticResource SectionHeaderStyle}" />
+                    <Entry x:Name="TaskDescriptionEntry"
+                           Placeholder="Enter task description" />
 
-            <Button
-                x:Name="SaveChangesButton"
-                Text="Save Changes"
-                Clicked="OnSaveChangesClicked" />
+                    <Button x:Name="SaveChangesButton"
+                            Text="Save Changes"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            Clicked="OnSaveChangesClicked" />
+                </VerticalStackLayout>
+            </Border>
 
-            <Label
-                Text="Elapsed Time"
-                FontAttributes="Bold" />
+            <Border Stroke="{StaticResource SurfaceBorderColor}"
+                    BackgroundColor="{StaticResource SurfaceColor}"
+                    StrokeThickness="1"
+                    Padding="16"
+                    StrokeShape="RoundRectangle 14">
 
-            <Label
-                x:Name="ElapsedTimeLabel"
-                Text="00:00:00"
-                FontSize="24"
-                FontAttributes="Bold" />
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Elapsed Time" Style="{StaticResource SectionHeaderStyle}" />
 
-            <Label
-                Text="Total Recorded Time"
-                FontAttributes="Bold" />
+                    <Label x:Name="ElapsedTimeLabel"
+                           Text="00:00:00"
+                           TextColor="{StaticResource PrimaryTextColor}"
+                           FontSize="32"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center" />
 
-            <Label
-                x:Name="TotalTimeLabel"
-                Text="00:00:00"
-                FontSize="20" />
+                    <Label Text="Total Recorded Time"
+                           Style="{StaticResource SectionHeaderStyle}" />
 
-            <Label
-                x:Name="TaskStatusLabel"
-                Text="Task is not running."
-                FontSize="16" />
+                    <Label x:Name="TotalTimeLabel"
+                           Text="00:00:00"
+                           TextColor="{StaticResource AccentColor}"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center" />
 
-            <Button
-                x:Name="StartButton"
-                Text="Start Timer"
-                Clicked="OnStartTimerClicked" />
+                    <Label x:Name="TaskStatusLabel"
+                           Text="Task is not running."
+                           TextColor="{StaticResource SecondaryTextColor}"
+                           FontSize="15"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Border>
 
-            <Button
-                x:Name="StopButton"
-                Text="Stop Timer"
-                Clicked="OnStopTimerClicked" />
+            <VerticalStackLayout Spacing="8">
+                <Button x:Name="StartButton"
+                        Text="Start Timer"
+                        Style="{StaticResource PrimaryButtonStyle}"
+                        Clicked="OnStartTimerClicked" />
 
-            <Button
-                x:Name="DeleteButton"
-                Text="Delete Task"
-                Clicked="OnDeleteTaskClicked" />
+                <Button x:Name="StopButton"
+                        Text="Stop Timer"
+                        Style="{StaticResource SecondaryButtonStyle}"
+                        Clicked="OnStopTimerClicked" />
 
-            <Label
-                Text="Session Log"
-                FontSize="20"
-                FontAttributes="Bold" />
+                <Button x:Name="DeleteButton"
+                        Text="Delete Task"
+                        Style="{StaticResource DangerButtonStyle}"
+                        Clicked="OnDeleteTaskClicked" />
+            </VerticalStackLayout>
 
-            <CollectionView
-                x:Name="SessionLogCollectionView"
-                SelectionMode="None">
+            <Label Text="Session Log"
+                   Style="{StaticResource SectionHeaderStyle}"
+                   Margin="0,6,0,0" />
+
+            <CollectionView x:Name="SessionLogCollectionView"
+                            SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Border Stroke="LightGray"
+                        <Border Stroke="{StaticResource SurfaceBorderColor}"
+                                BackgroundColor="{StaticResource SurfaceColor}"
                                 StrokeThickness="1"
-                                Padding="10"
-                                Margin="0,5">
-                            <VerticalStackLayout>
+                                Padding="12"
+                                Margin="0,5"
+                                StrokeShape="RoundRectangle 12">
+                            <VerticalStackLayout Spacing="4">
                                 <Label Text="{Binding StartTime, StringFormat='Date: {0:G}'}"
+                                       TextColor="{StaticResource PrimaryTextColor}"
                                        FontAttributes="Bold" />
-                                <Label Text="{Binding Duration, StringFormat='Duration: {0:hh\\:mm\\:ss}'}" />
-                                <Label Text="{Binding Comment, StringFormat='Comment: {0}'}" />
+                                <Label Text="{Binding Duration, StringFormat='Duration: {0:hh\\:mm\\:ss}'}"
+                                       TextColor="{StaticResource AccentColor}" />
+                                <Label Text="{Binding Comment, StringFormat='Comment: {0}'}"
+                                       TextColor="{StaticResource SecondaryTextColor}" />
                             </VerticalStackLayout>
                         </Border>
                     </DataTemplate>

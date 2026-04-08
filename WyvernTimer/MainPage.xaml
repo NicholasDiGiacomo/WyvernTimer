@@ -4,55 +4,66 @@
              x:Class="WyvernTimer.MainPage"
              Title="Wyvern Timer">
 
-    <VerticalStackLayout Padding="30,40" Spacing="15">
+    <Grid Padding="24,36" RowDefinitions="Auto,Auto,Auto,Auto,*,Auto">
 
-        <Label
-            Text="Wyvern Timer"
-            FontSize="28"
-            FontAttributes="Bold"
-            HorizontalOptions="Center" />
+        <Label Grid.Row="0"
+               Text="WyvernTimer"
+               Style="{StaticResource PageTitleStyle}" />
 
-        <Entry
-            x:Name="TaskNameEntry"
-            Placeholder="Enter task name" />
+        <VerticalStackLayout Grid.Row="1" Spacing="10" Margin="0,20,0,10">
+            <Label Text="Create New Task" Style="{StaticResource SectionHeaderStyle}" />
 
-        <Entry
-            x:Name="TaskDescriptionEntry"
-            Placeholder="Enter task description" />
+            <Entry x:Name="TaskNameEntry"
+                   Placeholder="Task name" />
 
-        <Button
-            Text="Create Task"
-            Clicked="OnCreateTaskClicked" />
+            <Entry x:Name="TaskDescriptionEntry"
+                   Placeholder="Task description" />
 
-        <Label
-            Text="Task List"
-            FontSize="20"
-            FontAttributes="Bold" />
+            <Button Text="Create Task"
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Clicked="OnCreateTaskClicked" />
+        </VerticalStackLayout>
 
-        <CollectionView
-    x:Name="TaskCollectionView"
-    SelectionMode="Single"
-    SelectionChanged="OnTaskSelected"
-    VerticalOptions="FillAndExpand">
+        <Label Grid.Row="2"
+               Text="Task List"
+               Style="{StaticResource SectionHeaderStyle}"
+               Margin="0,10,0,10" />
 
+        <CollectionView Grid.Row="4"
+                        x:Name="TaskCollectionView"
+                        SelectionMode="Single"
+                        SelectionChanged="OnTaskSelected">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="10" Margin="0,5">
-                        <VerticalStackLayout>
-                            <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="18" />
-                            <Label Text="{Binding Description}" FontSize="14" />
-                            <Label Text="{Binding DisplayText}" FontSize="14" />
+                    <Border Stroke="{StaticResource SurfaceBorderColor}"
+                            BackgroundColor="{StaticResource SurfaceColor}"
+                            StrokeThickness="1"
+                            Padding="14"
+                            Margin="0,6"
+                            StrokeShape="RoundRectangle 14">
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="{Binding Name}"
+                                   TextColor="{StaticResource PrimaryTextColor}"
+                                   FontSize="18"
+                                   FontAttributes="Bold" />
+                            <Label Text="{Binding Description}"
+                                   TextColor="{StaticResource SecondaryTextColor}"
+                                   FontSize="14" />
+                            <Label Text="{Binding DisplayText}"
+                                   TextColor="{StaticResource AccentColor}"
+                                   FontSize="14" />
                         </VerticalStackLayout>
-                    </Grid>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <Label
-            x:Name="TaskStatusLabel"
-            Text="Create a task or select one from the list."
-            FontSize="16" />
+        <Label Grid.Row="5"
+               x:Name="TaskStatusLabel"
+               Text="Create a task or select one from the list."
+               TextColor="{StaticResource SecondaryTextColor}"
+               FontSize="14"
+               Margin="0,12,0,0" />
 
-    </VerticalStackLayout>
-
+    </Grid>
 </ContentPage>
