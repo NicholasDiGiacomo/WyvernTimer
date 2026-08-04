@@ -25,19 +25,16 @@ The project was developed as an individual application project and was designed 
 
 ![WyvernTimer task details](screenshots/task-details.png)
 
-### Active Timer
-
-![WyvernTimer active timer](screenshots/active-timer.png)
 
 ## Demonstration
 
 ### Creating a Task
 
-![Creating a task in WyvernTimer](screenshots/create-task.gif)
+![Creating a task in WyvernTimer](screenshots/create-task.mp4)
 
 ### Recording a Work Session
 
-![Recording a work session in WyvernTimer](screenshots/timer-workflow.gif)
+![Recording a work session in WyvernTimer](screenshots/timer-demo.mp4)
 
 ## Technologies
 
