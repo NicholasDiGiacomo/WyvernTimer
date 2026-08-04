@@ -19,7 +19,7 @@ The project was developed as an individual application project and was designed 
 
 ### Task List
 
-![WyvernTimer task list](screenshots/task-list.png)
+![WyvernTimer task list](WyvernTimer/Screenshots/task-list.png)
 
 ### Task Details and Session History
 
