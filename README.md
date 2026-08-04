@@ -30,11 +30,11 @@ The project was developed as an individual application project and was designed 
 
 ### Creating a Task
 
-![Creating a task in WyvernTimer](WyvernTimer/Screenshots/create-task.mp4)
+![Creating a task in WyvernTimer](WyvernTimer/Screenshots/create-task.gif)
 
 ### Recording a Work Session
 
-![Recording a work session in WyvernTimer](WyvernTimer/Screenshots/timer-demo.mp4)
+![Recording a work session in WyvernTimer](WyvernTimer/Screenshots/timer-demo.gif)
 
 ## Technologies
 
